@@ -11,7 +11,7 @@ export class Torta extends Produto {
     }
 
     public get desconto(): number {
-        return this.preco * 0.8;
+        return this._desconto;
     }
 
     public set desconto(value: number) {
@@ -20,18 +20,19 @@ export class Torta extends Produto {
 
     public visualizar(): void {
         super.visualizar();
-        console.log(`Preco com desconto: ${this._desconto.toFixed(2)}`);
+        console.log(`Valor de desconto: ${this._desconto.toFixed(2)}`);
     }
 
     public pagar(valor: number): boolean {
+        const precoFinal = this.preco - this._desconto;
 
-        if (this._desconto > valor) {
+        if (precoFinal > valor) {
 
             console.log("\nPagamento insuficiente!");
             return false;
         }
 
-        const troco = valor - this._desconto;
+        const troco = valor - precoFinal;
         console.log(`Pagamento realizado com sucesso! Troco: R$ ${troco.toFixed(2)}`);
         return true;
     }
