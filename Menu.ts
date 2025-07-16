@@ -54,7 +54,7 @@ export function main() {
                 keyPress()
                 break;
             case 5:
-                console.log("\n\Remover produto do carrinho\n\n");
+                console.log("\n\nRemover produto do carrinho\n\n");
 
                 keyPress()
                 break;
